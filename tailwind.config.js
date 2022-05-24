@@ -1,6 +1,12 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    backdropFilter: {
+      none: 'none',
+      blur: 'blur(20px)',
+    },
     fontSize: {
       xs: '0.75rem',
       sm: '0.875rem',
@@ -15,6 +21,9 @@ module.exports = {
     },
     extend: {
       colors: {
+        fontFamily: {
+          sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
+        },
         gray: {
           100: '#f7fafc',
           200: '#edf2f7',
@@ -40,5 +49,4 @@ module.exports = {
       },
     },
   },
-  plugins: [],
 };

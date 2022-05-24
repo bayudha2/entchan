@@ -1,0 +1,134 @@
+{
+  "forums": [
+    {
+      "name": "Popkultur",
+      "bgColor": "#274237",
+      "subItem": [
+        {
+          "name": "Subkultur Prowibu",
+          "imgUrl": "popculture.webp"
+        },
+        {
+          "name": "Video game",
+          "imgUrl": "games.jpeg"
+        },
+        {
+          "name": "Sastra dan suastra",
+          "imgUrl": "sastra.jpeg"
+        },
+        {
+          "name": "Lingkarkarya kreatif",
+          "imgUrl": "lkk.png"
+        },
+        {
+          "name": "Tokusatsu dan live action",
+          "imgUrl": "tokusatsu.webp"
+        }
+      ]
+    },
+    {
+      "name": "Kekinian",
+      "bgColor": "#322742",
+      "subItem": [
+        {
+          "name": "Politik tidak sehat",
+          "imgUrl": "politik.webp"
+        },
+        {
+          "name": "Sains dan teknologi",
+          "imgUrl": "saintek.jpg"
+        },
+        {
+          "name": "Fiksi dan delusi romansa",
+          "imgUrl": "fiksidelusi.jpeg"
+        },
+        {
+          "name": "Media dan hiburan",
+          "imgUrl": "mediahiburan.jpeg"
+        },
+        {
+          "name": "Militer",
+          "imgUrl": "militer.jpeg"
+        },
+
+        {
+          "name": "Spiritual dan filosofi",
+          "imgUrl": "filosofi.webp"
+        },
+        {
+          "name": "Olahraga dan jasmani",
+          "imgUrl": "olahraga.jpeg"
+        },
+        {
+          "name": "Bisnis dan keuangan",
+          "imgUrl": "bisnis.jpeg"
+        },
+        {
+          "name": "Kuliner",
+          "imgUrl": "kuliner.jpeg"
+        },
+        {
+          "name": "Automorif dan motorsport",
+          "imgUrl": "automotive.jpeg"
+        },
+        {
+          "name": "Komik dan kartun",
+          "imgUrl": "kartun.jpg"
+        },
+        {
+          "name": "Sekolah dan perkampusan",
+          "imgUrl": "sekolah.jpeg"
+        }
+      ]
+    },
+    {
+      "name": "Bebas",
+      "bgColor": "#422727",
+      "subItem": [
+        {
+          "name": "Nirmakna",
+          "imgUrl": "nirmakna.jpeg"
+        },
+        {
+          "name": "International",
+          "imgUrl": "international.jpeg"
+        },
+        {
+          "name": "Klenik",
+          "imgUrl": "klenik.jpeg"
+        },
+        {
+          "name": "Sejarah",
+          "imgUrl": "sejarah.jpeg"
+        },
+        {
+          "name": "Permintaan bantuan",
+          "imgUrl": "bantuan.jpeg"
+        }
+      ]
+    }
+  ],
+  "forumSubItems": [
+    "wibu",
+    "gim",
+    "sass",
+    "toku",
+    "pol",
+    "mipa",
+    "rj",
+    "med",
+    "pew",
+    "omni",
+    "jas",
+    "wang",
+    "kul",
+    "oto",
+    "cb",
+    "ac",
+    "n",
+    "dio",
+    "miss",
+    "sjrh",
+    "tlg"
+  ]
+}
