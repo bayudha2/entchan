@@ -14,7 +14,6 @@ describe('search navigation component', () => {
         target: { value: 'adois amigo' },
       });
 
-      fireEvent.click(placeholderInputElement);
       fireEvent.keyPress(placeholderInputElement, { key: 'Enter', code: 13 });
 
       expect(placeholderInputElement).toBeInTheDocument();
@@ -30,6 +29,21 @@ describe('search navigation component', () => {
 
       expect(optionElement.selected).toBe(true);
       expect(screen.getAllByRole('option').length).toBe(21);
+    });
+
+    it('should change option', () => {
+      render(<SearchNav />);
+
+      fireEvent.change(screen.getByTestId('select'), {
+        target: { value: 'sass' },
+      });
+      const options: HTMLOptionElement[] =
+        screen.getAllByTestId('select-option');
+      expect(options[0]!.selected).toBeFalsy();
+      expect(options[1]!.selected).toBeFalsy();
+      expect(options[2]!.selected).toBeTruthy();
+      expect(options[3]!.selected).toBeFalsy();
+      expect(options[4]!.selected).toBeFalsy();
     });
   });
 });

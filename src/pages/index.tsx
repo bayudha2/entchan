@@ -22,6 +22,7 @@ const Index = () => {
       <Boards />
       <div className="mb-10" />
       <Popular />
+      <div className="mb-10" />
     </Main>
   );
 };

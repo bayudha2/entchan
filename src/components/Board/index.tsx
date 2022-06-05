@@ -10,7 +10,7 @@ const Boards = () => {
 
   return (
     <div className="flex w-full items-center justify-center">
-      <div className="relative w-full max-w-[900px] overflow-hidden rounded-lg border-[1px] border-solid border-gray-700 bg-[#27292C] p-4 shadow-lg">
+      <div className="relative w-full max-w-[900px] overflow-hidden rounded-lg border-[1px] border-solid border-gray-700 bg-gray-main p-4 shadow-lg">
         <img
           src={`${router.basePath}/assets/icons/icon-chat-bubble.svg`}
           alt="icon"

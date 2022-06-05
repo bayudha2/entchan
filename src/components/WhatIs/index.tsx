@@ -4,7 +4,7 @@ const WhatIs = () => {
   const router = useRouter();
   return (
     <div className="flex w-full items-center justify-center">
-      <div className="relative max-w-[900px] overflow-hidden rounded-lg border-[1px] border-solid border-gray-700 bg-[#27292C] p-4 shadow-lg">
+      <div className="relative max-w-[900px] overflow-hidden rounded-lg border-[1px] border-solid border-gray-700 bg-gray-main p-4 shadow-lg">
         <img
           src={`${router.basePath}/assets/icons/icon-info.svg`}
           alt="icon"

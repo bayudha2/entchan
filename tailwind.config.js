@@ -25,6 +25,7 @@ module.exports = {
           sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
         },
         gray: {
+          main: '#282a2e',
           100: '#f7fafc',
           200: '#edf2f7',
           300: '#e2e8f0',

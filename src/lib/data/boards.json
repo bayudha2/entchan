@@ -6,23 +6,28 @@
       "subItem": [
         {
           "name": "Subkultur Prowibu",
-          "imgUrl": "popculture.webp"
+          "imgUrl": "popculture.webp",
+          "short": "/wibu"
         },
         {
           "name": "Video game",
-          "imgUrl": "games.jpeg"
+          "imgUrl": "games.jpeg",
+          "short": "/gim"
         },
         {
           "name": "Sastra dan suastra",
-          "imgUrl": "sastra.jpeg"
+          "imgUrl": "sastra.jpeg",
+          "short": "/sass"
         },
         {
           "name": "Lingkarkarya kreatif",
-          "imgUrl": "lkk.png"
+          "imgUrl": "lkk.png",
+          "short": "/toku"
         },
         {
           "name": "Tokusatsu dan live action",
-          "imgUrl": "tokusatsu.webp"
+          "imgUrl": "tokusatsu.webp",
+          "short": "/toku"
         }
       ]
     },
@@ -32,52 +37,64 @@
       "subItem": [
         {
           "name": "Politik tidak sehat",
-          "imgUrl": "politik.webp"
+          "imgUrl": "politik.webp",
+          "short": "/pol"
         },
         {
           "name": "Sains dan teknologi",
-          "imgUrl": "saintek.jpg"
+          "imgUrl": "saintek.jpg",
+          "short": "/mipa"
         },
         {
           "name": "Fiksi dan delusi romansa",
-          "imgUrl": "fiksidelusi.jpeg"
+          "imgUrl": "fiksidelusi.jpeg",
+          "short": "/rj"
         },
         {
           "name": "Media dan hiburan",
-          "imgUrl": "mediahiburan.jpeg"
+          "imgUrl": "mediahiburan.jpeg",
+          "short": "/med"
         },
         {
           "name": "Militer",
-          "imgUrl": "militer.jpeg"
+          "imgUrl": "militer.jpeg",
+          "short": "/pew"
         },
 
         {
           "name": "Spiritual dan filosofi",
-          "imgUrl": "filosofi.webp"
+          "imgUrl": "filosofi.webp",
+          "short": "/omni"
         },
         {
           "name": "Olahraga dan jasmani",
-          "imgUrl": "olahraga.jpeg"
+          "imgUrl": "olahraga.jpeg",
+          "short": "/jas"
         },
         {
           "name": "Bisnis dan keuangan",
-          "imgUrl": "bisnis.jpeg"
+          "imgUrl": "bisnis.jpeg",
+          "short": "/wang"
         },
         {
           "name": "Kuliner",
-          "imgUrl": "kuliner.jpeg"
+          "imgUrl": "kuliner.jpeg",
+          "short": "/kul"
         },
         {
           "name": "Automorif dan motorsport",
-          "imgUrl": "automotive.jpeg"
+          "imgUrl": "automotive.jpeg",
+          "short": "/oto"
         },
         {
           "name": "Komik dan kartun",
-          "imgUrl": "kartun.jpg"
+          "imgUrl": "kartun.jpg",
+          "short": "/cb"
         },
         {
           "name": "Sekolah dan perkampusan",
-          "imgUrl": "sekolah.jpeg"
+          "imgUrl": "sekolah.jpeg",
+          "short": "/ac"
         }
       ]
     },
@@ -87,23 +104,28 @@
       "subItem": [
         {
           "name": "Nirmakna",
-          "imgUrl": "nirmakna.jpeg"
+          "imgUrl": "nirmakna.jpeg",
+          "short": "/n"
         },
         {
           "name": "International",
-          "imgUrl": "international.jpeg"
+          "imgUrl": "international.jpeg",
+          "short": "/dio"
         },
         {
           "name": "Klenik",
-          "imgUrl": "klenik.jpeg"
+          "imgUrl": "klenik.jpeg",
+          "short": "/miss"
         },
         {
           "name": "Sejarah",
-          "imgUrl": "sejarah.jpeg"
+          "imgUrl": "sejarah.jpeg",
+          "short": "/sjrh"
         },
         {
           "name": "Permintaan bantuan",
-          "imgUrl": "bantuan.jpeg"
+          "imgUrl": "bantuan.jpeg",
+          "short": "/tlg"
         }
       ]
     }

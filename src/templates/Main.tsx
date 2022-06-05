@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 
+import Dropdown from '@/components/Dropdown';
 import SearchNav from '@/components/Searchs/SearchNav';
+import boards from '@/lib/data/boards.json';
 import { AppConfig } from '@/utils/AppConfig';
 
 type IMainProps = {
@@ -10,6 +12,7 @@ type IMainProps = {
 };
 
 const Main = (props: IMainProps) => {
+  const { forums } = boards;
   return (
     <div className=" w-full px-1 text-gray-700 antialiased">
       {props.meta}
@@ -23,31 +26,33 @@ const Main = (props: IMainProps) => {
             {/* nav */}
             <div className="flex flex-1 items-center justify-center">
               <ul className="flex  flex-wrap text-xl">
-                <li className="mr-6">
-                  <Link href="/">
-                    <a className="border-none text-gray-700 hover:text-gray-900">
-                      Home
-                    </a>
-                  </Link>
-                </li>
-                <li className="mr-6">
-                  <a
-                    className="border-none text-gray-700 hover:text-gray-900"
-                    href="https://github.com/ixartz/Next-js-Boilerplate"
-                  >
-                    GitHub
-                  </a>
-                </li>
+                {forums &&
+                  forums.map((item, idx) => {
+                    return (
+                      <li className="mr-6" key={idx}>
+                        <Dropdown item={item} />
+                      </li>
+                    );
+                  })}
               </ul>
             </div>
             {/* option */}
             <div className="my-auto flex flex-1 items-center justify-center">
-              ini settings
+              <div className="mr-4">
+                <p className="cursor-pointer border-none text-center text-gray-600">
+                  Settings
+                </p>
+              </div>
+              <div>
+                <Link href="/">
+                  <a className="border-none text-center text-gray-600">Home</a>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="mb-20" />
+        <div className="mb-14" />
 
         <div className="contents py-5 text-xl">{props.children}</div>
 
