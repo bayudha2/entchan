@@ -1,5 +1,7 @@
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 
+import { selectProfile } from '@/app/store/slices/profile';
 import Thread from '@/components/Threads/Thread';
 import TopBoard from '@/components/TopBoard';
 import { Meta } from '@/layouts/Meta';
@@ -10,7 +12,7 @@ const dummyThread = [
     who: 'Awanama',
     imgUrl: 'post-1.jpeg',
     date: '31 May 2022 at 2:00 AM',
-    id: '4087106',
+    id: '4087112',
     subject:
       "Shoujo Shuumatsu Ryokou (Girls' Last Tour) + Tsukumizu Thread #28",
     quote:
@@ -19,7 +21,7 @@ const dummyThread = [
       {
         who: 'Awanama',
         date: '31 May 2022 at 2:00 AM',
-        id: '4087106',
+        id: '4087113',
         imgUrl: 'reply-1.jpeg',
         detail:
           "One thing I realized after last week's watch was that I had gotten it wrong what that one motif in the soundtrack means. It isn't Karen and Hikari's, it's for any promises, which is why you hear it with Futaba and Kaoruko after their revue in the show but you don't hear it in Super Star Spectacle.",
@@ -27,8 +29,48 @@ const dummyThread = [
       {
         who: 'Awanama',
         date: '31 May 2022 at 2:00 AM',
-        id: '4087106',
+        id: '4087114',
         imgUrl: 'reply-2.png',
+        detail:
+          '<span class="text-teal-200"> >leaving in three hours exactly</span> <br /> You guys enjoy. I&apos;ll be thinking about you tomorrow in the theater.',
+      },
+      {
+        who: 'Awanama',
+        date: '31 May 2022 at 2:00 AM',
+        id: '4087151',
+        imgUrl: 'reply-3.jpeg',
+        detail:
+          "One thing I realized after last week's watch was that I had gotten it wrong what that one motif in the soundtrack means. It isn't Karen and Hikari's, it's for any promises, which is why you hear it with Futaba and Kaoruko after their revue in the show but you don't hear it in Super Star Spectacle.",
+      },
+      {
+        who: 'Awanama',
+        date: '31 May 2022 at 2:00 AM',
+        id: '4087143',
+        imgUrl: 'reply-4.jpeg',
+        detail:
+          '<span class="text-teal-200"> >leaving in three hours exactly</span> <br /> You guys enjoy. I&apos;ll be thinking about you tomorrow in the theater.',
+      },
+      {
+        who: 'Awanama',
+        date: '31 May 2022 at 2:00 AM',
+        id: '4087189',
+        imgUrl: 'reply-5.jpeg',
+        detail:
+          "One thing I realized after last week's watch was that I had gotten it wrong what that one motif in the soundtrack means. It isn't Karen and Hikari's, it's for any promises, which is why you hear it with Futaba and Kaoruko after their revue in the show but you don't hear it in Super Star Spectacle.",
+      },
+      {
+        who: 'Awanama',
+        date: '31 May 2022 at 2:00 AM',
+        id: '4087998',
+        imgUrl: 'reply-6.jpeg',
+        detail:
+          '<span class="text-teal-200"> >leaving in three hours exactly</span> <br /> You guys enjoy. I&apos;ll be thinking about you tomorrow in the theater.',
+      },
+      {
+        who: 'Awanama',
+        date: '31 May 2022 at 2:00 AM',
+        id: '4087867',
+        imgUrl: 'reply-7.jpeg',
         detail:
           '<span class="text-teal-200"> >leaving in three hours exactly</span> <br /> You guys enjoy. I&apos;ll be thinking about you tomorrow in the theater.',
       },
@@ -38,7 +80,7 @@ const dummyThread = [
     who: 'Awanama',
     imgUrl: 'post-2.jpeg',
     date: '31 May 2022 at 2:00 AM',
-    id: '4087106',
+    id: '4087123',
     subject: '',
     quote: 'Now thats its over, did you like Oden?',
     reply: [],
@@ -48,10 +90,12 @@ const dummyThread = [
 const Forum = () => {
   const router = useRouter();
   const { id } = router.query;
+  const profile = useSelector(selectProfile);
 
   return (
     <Main meta={<Meta title="Lorem ipsum" description="Lorem ipsum" />}>
       <TopBoard tag={id} />
+      <p>redux data: {profile.name}</p>
       <div className="mt-10 flex w-screen items-center justify-center">
         <div className="w-[1080px]">
           <div

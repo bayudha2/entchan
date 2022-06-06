@@ -14,7 +14,10 @@ const ThreadReply = ({ reply }: { reply: ReplyType }): JSX.Element => {
   const [scale2, setScale2] = useState(true);
 
   return (
-    <div className="mt-4 rounded-md bg-[#313037] p-2">
+    <div
+      className="mt-4 scroll-mt-32 rounded-md bg-[#313037] p-2"
+      id={reply.id}
+    >
       <p className="text-sm text-gray-600">
         <span className="mr-1 text-base font-bold text-[#67bedd]">
           {reply.who}
