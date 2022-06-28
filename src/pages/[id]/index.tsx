@@ -17,6 +17,7 @@ const dummyThread = [
       "Shoujo Shuumatsu Ryokou (Girls' Last Tour) + Tsukumizu Thread #28",
     quote:
       "I feel like I've been burned too many times on things like Berserk and Vagabond, where the author dies or just gets too sick to keep going and the story is left without resolution. Hell, even with things like HxH and Houseki the authors taking extended hiatuses is just so painful. It's starting to feel like it's less worth picking up older continuing series or even newer ones without knowing if things are at least gonna wrap up relatively soon, or at the bare minimum not require another 500 chapters to address plot points. <br /> <br /> Would you rather have shorter stories if it meant you got a guaranteed finished series instead of watching something go on for a thousand chapters only to have it all get cut short by something unexpected?",
+    repliedToThis: ['4087151'],
     reply: [
       {
         who: 'Awanama',
@@ -32,15 +33,30 @@ const dummyThread = [
         id: '4087114',
         imgUrl: 'reply-2.png',
         detail:
-          '<span class="text-teal-200"> >leaving in three hours exactly</span> <br /> You guys enjoy. I&apos;ll be thinking about you tomorrow in the theater.',
+          ">leaving in three hours exactly You guys enjoy. I'll be thinking about you tomorrow in the theater.",
+      },
+
+      {
+        who: 'Awanama',
+        date: '31 May 2022 at 2:00 AM',
+        id: '4087158',
+        imgUrl: '',
+        detail:
+          '<span class="text-teal-200"> >leaving in three hours exactly</span> <br /> >>4087112 <br /> lessgoo',
       },
       {
         who: 'Awanama',
         date: '31 May 2022 at 2:00 AM',
         id: '4087151',
         imgUrl: 'reply-3.jpeg',
-        detail:
-          "One thing I realized after last week's watch was that I had gotten it wrong what that one motif in the soundtrack means. It isn't Karen and Hikari's, it's for any promises, which is why you hear it with Futaba and Kaoruko after their revue in the show but you don't hear it in Super Star Spectacle.",
+        detail: `<p>
+          <a class="nrep cursor-pointer text-teal-200 no-underline" href="#">
+            &gt;&gt;4087112
+          </a>
+          <a class="nrep cursor-pointer text-teal-200 no-underline" href="#">
+            &gt;&gt;4087112
+          </a>
+        </p>`,
       },
       {
         who: 'Awanama',
@@ -56,7 +72,7 @@ const dummyThread = [
         id: '4087189',
         imgUrl: 'reply-5.jpeg',
         detail:
-          "One thing I realized after last week's watch was that I had gotten it wrong what that one motif in the soundtrack means. It isn't Karen and Hikari's, it's for any promises, which is why you hear it with Futaba and Kaoruko after their revue in the show but you don't hear it in Super Star Spectacle.",
+          "One I realized after last week's watch was that I had gotten it wrong what that one motif in the soundtrack means. It isn't Karen and Hikari's, it's for any promises, which is why you hear it with Futaba and Kaoruko after their revue in the show but you don't hear it in Super Star Spectacle.",
       },
       {
         who: 'Awanama',
@@ -83,6 +99,7 @@ const dummyThread = [
     id: '4087123',
     subject: '',
     quote: 'Now thats its over, did you like Oden?',
+    repliedToThis: [],
     reply: [],
   },
 ];

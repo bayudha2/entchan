@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 import type { WritableDraft } from 'immer/dist/internal';
 import { HYDRATE } from 'next-redux-wrapper';
@@ -23,6 +22,7 @@ export const ProfileSlice = createSlice({
       if (!action.payload.profile.name) {
         return state;
       }
+
       state.name = action.payload.profile.name;
       return state;
     },

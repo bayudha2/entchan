@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 
+import { useAppSelector } from '@/app/hooks';
+import { selectThread } from '@/app/store/slices/thread';
 import Dropdown from '@/components/Dropdown';
 import SearchNav from '@/components/Searchs/SearchNav';
 import boards from '@/lib/data/boards.json';
@@ -12,7 +14,9 @@ type IMainProps = {
 };
 
 const Main = (props: IMainProps) => {
+  const thread = useAppSelector(selectThread);
   const { forums } = boards;
+
   return (
     <div className=" w-full px-1 text-gray-700 antialiased">
       {props.meta}
@@ -55,6 +59,12 @@ const Main = (props: IMainProps) => {
         <div className="mb-14" />
 
         <div className="contents py-5 text-xl">{props.children}</div>
+
+        {thread.isShown && (
+          <div className="fixed top-14 left-1 rounded bg-gray-700 p-4">
+            <p className="text-white">Thread shown in here</p>
+          </div>
+        )}
 
         <div className="border-t border-gray-300 py-8 text-center text-sm">
           © Copyright {new Date().getFullYear()} {AppConfig.title}. Made with{' '}
