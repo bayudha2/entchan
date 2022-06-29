@@ -5,6 +5,7 @@ import CardItem from '.';
 const data = {
   name: 'sub kultur',
   imgUrl: 'popculture.webp',
+  short: '/wibu',
 };
 
 describe('CardItem component', () => {

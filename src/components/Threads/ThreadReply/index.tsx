@@ -1,17 +1,21 @@
 // import { EditorContent, useEditor } from '@tiptap/react';
 // import StarterKit from '@tiptap/starter-kit';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 
 import { useAppDispatch } from '@/app/hooks';
 import { getThreadDetail, setShown } from '@/app/store/slices/thread';
+import PopoverComp from '@/components/Popover';
 // import { handleQuoteFormat } from '@/lib/helpers/threadFormatHandler';
+import { searchThread, searchThreadRemove } from '@/lib/helpers/searchThread';
 
 type ReplyType = {
   who: string;
   date: string;
   id: string;
   imgUrl: string;
+  repliedToThis: string[];
   detail: string;
 };
 
@@ -20,6 +24,7 @@ const ThreadReply = ({ reply }: { reply: ReplyType }): JSX.Element => {
   const router = useRouter();
   const [scale2, setScale2] = useState(true);
   const dispatch = useAppDispatch();
+  const [hideThread, setHideThread] = useState<boolean>(false);
 
   function giveListenerToThread(e: React.MouseEvent<HTMLInputElement>) {
     e.preventDefault();
@@ -78,16 +83,38 @@ const ThreadReply = ({ reply }: { reply: ReplyType }): JSX.Element => {
       className="mt-4 scroll-mt-32 rounded-md bg-[#313037] p-2"
       id={reply.id}
     >
-      <p className="text-sm text-gray-600">
-        <span className="mr-1 text-base font-bold text-[#67bedd]">
-          {reply.who}
-        </span>
-        | {reply.date}
-      </p>
+      <div className="flex items-center justify-between">
+        <p className="text-sm text-gray-600">
+          <span className="mr-1 text-base font-bold text-[#67bedd]">
+            {reply.who}
+          </span>
+          | {reply.date}
+        </p>
+        <PopoverComp
+          hideThread={hideThread}
+          setHideThread={setHideThread}
+          id={reply.id}
+          imgUrl={reply.imgUrl}
+        />
+      </div>
       <div className="flex">
-        <p className="m-0 cursor-pointer text-[10px] font-semibold text-gray-600 hover:text-gray-500">
+        <p className="m-0 mr-1 cursor-pointer text-[10px] font-semibold text-gray-600 hover:text-gray-500">
           No.{reply.id}
         </p>
+        {reply.repliedToThis &&
+          reply.repliedToThis.map((item) => {
+            return (
+              <Link href={`#${item}`} key={item}>
+                <a
+                  className="m-0 mr-1 cursor-pointer px-1 text-[10px] font-semibold text-yellow-300 no-underline hover:text-yellow-600"
+                  onMouseEnter={searchThread}
+                  onMouseLeave={searchThreadRemove}
+                >
+                  &gt;&gt;{item}
+                </a>
+              </Link>
+            );
+          })}
       </div>
       {/* <EditorContent editor={editor} />
       <button onClick={quoteFormat}>cek</button>
