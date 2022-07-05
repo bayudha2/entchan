@@ -1,7 +1,7 @@
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import PopoverComp from '@/components/Popover';
 import { searchThread, searchThreadRemove } from '@/lib/helpers/searchThread';
@@ -34,6 +34,7 @@ const Thread = ({
   dataThread: DataThreadType;
 }): JSX.Element => {
   const router = useRouter();
+  const ref = useRef<any>();
   const [scale, setScale] = useState(true);
   const [imageCount, setImageCount] = useState<ReplyType>([]);
   const [showAll, setShowAll] = useState<boolean>(false);
@@ -45,9 +46,29 @@ const Thread = ({
     setImageCount(imgCount);
   }, [dataThread]);
 
+  function giveListenerToThread(e: React.MouseEvent<HTMLInputElement>) {
+    e.preventDefault();
+    const targetLink = e.target as Element;
+    targetLink.querySelectorAll('.nrep').forEach((item) => {
+      item.addEventListener('mouseenter', searchThread);
+
+      item.addEventListener('mouseleave', searchThreadRemove);
+    });
+  }
+
   useEffect(() => {
-    console.log('changed!');
+    if (ref.current) {
+      ref.current.addEventListener('mouseenter', giveListenerToThread, {
+        once: true,
+      });
+    }
   }, [hideThread]);
+
+  function handleThreadClick(e: React.MouseEvent<HTMLInputElement>) {
+    e.preventDefault();
+    const targetLink = e.target as Element;
+    console.log('e', targetLink.closest('a'));
+  }
 
   return (
     <div
@@ -67,7 +88,7 @@ const Thread = ({
               | {dataThread.date}
             </p>
             <p className="m-0 mr-1 cursor-pointer text-sm font-semibold text-gray-600 hover:text-gray-500">
-              No.{dataThread.id}
+              No.{dataThread.id.replace('t_', '')}
             </p>
           </div>
           <PopoverComp
@@ -109,7 +130,7 @@ const Thread = ({
                 </div>
                 <div className="flex">
                   <p className="m-0 mr-1 cursor-pointer text-[10px] font-semibold text-gray-600 hover:text-gray-500">
-                    No.{dataThread.id}
+                    No.{dataThread.id.replace('t_', '')}
                   </p>
                   {dataThread.reply &&
                     dataThread.repliedToThis.map((item) => {
@@ -134,7 +155,11 @@ const Thread = ({
                 data-testid="blockquote-thread"
                 className="mt-1 text-[13px] text-gray-500"
               >
-                <div dangerouslySetInnerHTML={{ __html: dataThread.quote }} />
+                <div
+                  onClick={handleThreadClick}
+                  ref={ref}
+                  dangerouslySetInnerHTML={{ __html: dataThread.quote }}
+                />
               </blockquote>
             </div>
           </div>

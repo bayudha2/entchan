@@ -1,120 +1,25 @@
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { selectProfile } from '@/app/store/slices/profile';
+import Pagination from '@/components/Pagination';
 import Thread from '@/components/Threads/Thread';
 import TopBoard from '@/components/TopBoard';
 import { Meta } from '@/layouts/Meta';
+import exThreads from '@/lib/data/ex-thread.json';
 import { Main } from '@/templates/Main';
 
-const dummyThread = [
-  {
-    who: 'Awanama',
-    imgUrl: 'post-1.jpeg',
-    date: '31 May 2022 at 2:00 AM',
-    id: '4087112',
-    subject:
-      "Shoujo Shuumatsu Ryokou (Girls' Last Tour) + Tsukumizu Thread #28 Tsukumizu Thread #28 Tsukumizu Thread #28 Tsukumizu Thread #28",
-    quote:
-      "I feel like I've been burned too many times on things like Berserk and Vagabond, where the author dies or just gets too sick to keep going and the story is left without resolution. Hell, even with things like HxH and Houseki the authors taking extended hiatuses is just so painful. It's starting to feel like it's less worth picking up older continuing series or even newer ones without knowing if things are at least gonna wrap up relatively soon, or at the bare minimum not require another 500 chapters to address plot points. <br /> <br /> Would you rather have shorter stories if it meant you got a guaranteed finished series instead of watching something go on for a thousand chapters only to have it all get cut short by something unexpected?",
-    repliedToThis: ['4087151'],
-    reply: [
-      {
-        who: 'Awanama',
-        date: '31 May 2022 at 2:00 AM',
-        id: '4087113',
-        imgUrl: 'reply-1.jpeg',
-        repliedToThis: [],
-        detail:
-          "One thing I realized after last week's watch was that I had gotten it wrong what that one motif in the soundtrack means. It isn't Karen and Hikari's, it's for any promises, which is why you hear it with Futaba and Kaoruko after their revue in the show but you don't hear it in Super Star Spectacle.",
-      },
-      {
-        who: 'Awanama',
-        date: '31 May 2022 at 2:00 AM',
-        id: '4087114',
-        imgUrl: 'reply-2.png',
-        repliedToThis: [],
-        detail:
-          ">leaving in three hours exactly You guys enjoy. I'll be thinking about you tomorrow in the theater.",
-      },
-      {
-        who: 'Awanama',
-        date: '31 May 2022 at 2:00 AM',
-        id: '4087158',
-        imgUrl: '',
-        repliedToThis: ['4087151'],
-        detail:
-          '<span class="text-teal-200"> >leaving in three hours exactly</span> <br /> >>4087112 <br /> lessgoo',
-      },
-      {
-        who: 'Awanama',
-        date: '31 May 2022 at 2:00 AM',
-        id: '4087151',
-        imgUrl: 'reply-3.jpeg',
-        repliedToThis: [],
-        detail: `<p>
-          <a class="nrep cursor-pointer text-teal-200 no-underline" href="#">
-            &gt;&gt;4087112
-          </a>
-          <a class="nrep cursor-pointer text-teal-200 no-underline" href="#">
-            &gt;&gt;4087158
-          </a>
-        </p><p>lemme try this</p>`,
-      },
-      {
-        who: 'Awanama',
-        date: '31 May 2022 at 2:00 AM',
-        id: '4087143',
-        imgUrl: 'reply-4.jpeg',
-        repliedToThis: [],
-        detail:
-          '<span class="text-teal-200"> >leaving in three hours exactly</span> <br /> You guys enjoy. I&apos;ll be thinking about you tomorrow in the theater.',
-      },
-      {
-        who: 'Awanama',
-        date: '31 May 2022 at 2:00 AM',
-        id: '4087189',
-        imgUrl: 'reply-5.jpeg',
-        repliedToThis: [],
-        detail:
-          "One I realized after last week's watch was that I had gotten it wrong what that one motif in the soundtrack means. It isn't Karen and Hikari's, it's for any promises, which is why you hear it with Futaba and Kaoruko after their revue in the show but you don't hear it in Super Star Spectacle.",
-      },
-      {
-        who: 'Awanama',
-        date: '31 May 2022 at 2:00 AM',
-        id: '4087998',
-        imgUrl: 'reply-6.jpeg',
-        repliedToThis: [],
-        detail:
-          '<span class="text-teal-200"> >leaving in three hours exactly</span> <br /> You guys enjoy. I&apos;ll be thinking about you tomorrow in the theater.',
-      },
-      {
-        who: 'Awanama',
-        date: '31 May 2022 at 2:00 AM',
-        id: '4087867',
-        imgUrl: 'reply-7.jpeg',
-        repliedToThis: [],
-        detail:
-          '<span class="text-teal-200"> >leaving in three hours exactly</span> <br /> You guys enjoy. I&apos;ll be thinking about you tomorrow in the theater.',
-      },
-    ],
-  },
-  {
-    who: 'Awanama',
-    imgUrl: 'post-2.jpeg',
-    date: '31 May 2022 at 2:00 AM',
-    id: '4087123',
-    subject: '',
-    quote: 'Now thats its over, did you like Oden?',
-    repliedToThis: [],
-    reply: [],
-  },
-];
-
 const Forum = () => {
+  const [items, setItems] = useState<any[]>([]);
+
   const router = useRouter();
   const { id } = router.query;
   const profile = useSelector(selectProfile);
+
+  useEffect(() => {
+    setItems(exThreads['threads-sample']);
+  }, []);
 
   return (
     <Main meta={<Meta title="Lorem ipsum" description="Lorem ipsum" />}>
@@ -127,19 +32,20 @@ const Forum = () => {
             onClick={() => alert('popup modul!')}
           >
             <h2 className="text-center text-2xl font-bold text-gray-600">
-              Start a New Thread
+              Start a New Thread {exThreads['threads-sample'].length}
             </h2>
           </div>
         </div>
       </div>
-      <section>
+      <section className="mb-20">
         <div className="mt-4 flex w-screen items-center justify-center">
           <div className="w-[1080px]">
             {/* thread */}
-            {dummyThread &&
-              dummyThread.map((item, index) => {
+            {items &&
+              items.map((item: any, index: number) => {
                 return <Thread key={index} dataThread={item} />;
               })}
+            <Pagination items={items} setItems={setItems} />
           </div>
         </div>
       </section>

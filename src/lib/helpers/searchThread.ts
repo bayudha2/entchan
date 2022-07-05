@@ -1,14 +1,17 @@
 import { store } from '@/app/store';
-import { setShown } from '@/app/store/slices/thread';
+import { getThreadDetail, setShown } from '@/app/store/slices/thread';
 import isInViewport from '@/lib/helpers/isInViewport';
 
-export function searchThread(e: any): void {
-  const getId = e.target.innerText.replace('>>', '') as string;
-  const whichThread = document.getElementById(getId) as HTMLElement;
+export async function searchThread(e: any): Promise<void> {
+  const getId = e.target.innerText.trim().replace('>>', 't_') as string;
+  const whichThread = document.querySelector(`#${getId}`) as HTMLElement;
 
-  if (!whichThread) return;
-  if (!!whichThread && !isInViewport(whichThread)) {
+  console.log('getId', getId);
+  console.log('whichThread', whichThread);
+
+  if (!isInViewport(whichThread)) {
     store.dispatch(setShown({ payload: true }));
+    store.dispatch(getThreadDetail());
     return;
   }
 
@@ -17,15 +20,12 @@ export function searchThread(e: any): void {
 }
 
 export function searchThreadRemove(e: any): void {
-  const getId = e.target.innerText.replace('>>', '') as string;
+  const getId = e.target.innerText.trim().replace('>>', 't_') as string;
   const whichThread = document.getElementById(getId) as HTMLElement;
 
-  if (!whichThread) return;
-  if (!!whichThread && !isInViewport(whichThread)) {
-    store.dispatch(setShown({ payload: false }));
-    return;
-  }
+  store.dispatch(setShown({ payload: false }));
 
+  if (!whichThread) return;
   whichThread.classList.remove('bg-[#4b2750]');
   whichThread.classList.add('bg-[#313037]');
 }
